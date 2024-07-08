@@ -5,25 +5,16 @@ package org.amalitech.sortingalgorithms.dto;
  * It provides a structure for the request payload when invoking the sorting endpoints.
  */
 public class SortRequest {
+    private String array;
+    private String algorithm;
 
-    // Array to be sorted
-    private int[] array;
-
-    /**
-     * Gets the array to be sorted.
-     *
-     * @return the array to be sorted
-     */
-    public int[] getArray() {
+    // Getters
+    public String getArray() {
         return array;
     }
 
-    /**
-     * Sets the array to be sorted.
-     *
-     * @param array the array to be sorted
-     */
-    public void setArray(int[] array) {
-        this.array = array;
+    public String getAlgorithm() {
+        return algorithm;
     }
+
 }

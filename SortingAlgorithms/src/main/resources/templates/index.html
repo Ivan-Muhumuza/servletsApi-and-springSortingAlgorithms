@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorting App</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="main">
+    <div class="container">
+        <h1>Sorting App</h1>
+
+        <!-- Display error message if there's any -->
+        <div th:if="${error}" class="error">
+            <p th:text="${error}"></p>
+        </div>
+
+        <!-- Sorting form -->
+        <form action="/sort" method="post">
+            <div class="item">
+                <label for="array">Enter numbers (comma-separated):</label><br>
+                <input type="text" id="array" name="array" th:value="${sortRequest.array}" required><br><br>
+            </div>
+            <div class="item">
+                <label for="algorithm">Choose algorithm:</label><br>
+                <select id="algorithm" name="algorithm">
+                    <option th:each="algo : ${algorithms}" th:value="${algo}" th:text="${algo}"></option>
+                </select>
+            </div>
+            <button type="submit" style="background-color: #2E85FF; padding: 10px 30px; border: none; border-radius: 5px; margin-top: 15px; color: white;">Sort</button>
+        </form>
+
+        <!-- Display input array -->
+        <div th:if="${originalArray}">
+            <h2>Input Array:</h2>
+            <p th:text="${originalArray}"></p>
+        </div>
+
+        <!-- Display sorted array -->
+        <div th:if="${sortedArray}">
+            <h2>Sorted Array:</h2>
+            <p th:text="${sortedArray}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

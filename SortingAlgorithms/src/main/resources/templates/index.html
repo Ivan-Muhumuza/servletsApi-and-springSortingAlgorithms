@@ -16,15 +16,16 @@
         </div>
 
         <!-- Sorting form -->
-        <form action="/sort" method="post">
+        <form action="/" method="post">
             <div class="item">
                 <label for="array">Enter numbers (comma-separated):</label><br>
                 <input type="text" id="array" name="array" th:value="${sortRequest.array}" required><br><br>
             </div>
             <div class="item">
                 <label for="algorithm">Choose algorithm:</label><br>
-                <select id="algorithm" name="algorithm">
-                    <option th:each="algo : ${algorithms}" th:value="${algo}" th:text="${algo}"></option>
+                <select id="algorithm" name="algorithm" required>
+                    <option value="">Select an algorithm</option>
+                    <option th:each="algo : ${algorithms}" th:value="${algo.name()}" th:text="${algo.name()}"></option>
                 </select>
             </div>
             <button type="submit" style="background-color: #2E85FF; padding: 10px 30px; border: none; border-radius: 5px; margin-top: 15px; color: white;">Sort</button>
@@ -45,3 +46,4 @@
 </div>
 </body>
 </html>
+

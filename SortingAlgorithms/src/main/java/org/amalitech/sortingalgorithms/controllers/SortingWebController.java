@@ -23,8 +23,15 @@ public class SortingWebController {
         return "index";
     }
 
-    @PostMapping("/sort")
+    @PostMapping("/")
     public String sort(@ModelAttribute SortRequest sortRequest, Model model) {
+        // Validate that the algorithm field is not null
+        if (sortRequest.getAlgorithm() == null || sortRequest.getAlgorithm().isEmpty()) {
+            model.addAttribute("error", "Please select a sorting algorithm.");
+            model.addAttribute("sortRequest", sortRequest);
+            model.addAttribute("algorithms", SortingAlgorithm.values());
+            return "index";
+        }
         SortingAlgorithm algorithm = SortingAlgorithm.valueOf(sortRequest.getAlgorithm().toUpperCase());
 
         // Validate and convert the input string to an array of integers

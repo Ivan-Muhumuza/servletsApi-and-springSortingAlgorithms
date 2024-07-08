@@ -8,13 +8,20 @@ public class SortRequest {
     private String array;
     private String algorithm;
 
-    // Getters
+    // Getters and setters
     public String getArray() {
         return array;
+    }
+
+    public void setArray(String array) {
+        this.array = array;
     }
 
     public String getAlgorithm() {
         return algorithm;
     }
 
+    public void setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+    }
 }
